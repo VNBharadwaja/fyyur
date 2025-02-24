@@ -1,0 +1,32 @@
+name: Auto Assign Reviewers
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  assign-reviewers:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check base branch and assign reviewers
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const baseBranch = context.payload.pull_request.base.ref;
+
+            let reviewers = [];
+            if (baseBranch === "master") {
+              reviewers = ["VNBharadwaja", "anilbtg"]; // Replace with actual GitHub usernames
+            } else {
+              reviewers = ["anilbtg"]; // Different reviewers for other branches
+            }
+
+            if (reviewers.length > 0) {
+              github.rest.pulls.requestReviewers({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                pull_number: context.payload.pull_request.number,
+                reviewers: reviewers
+              });
+            }
