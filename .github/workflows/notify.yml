@@ -19,9 +19,9 @@ jobs:
 
             let reviewers = [];
             if (baseBranch === "master") {
-              reviewers = "anilbtgorg/anilbtg_ALL"; // Replace with actual GitHub usernames
+              reviewers = "anilbtgorg/anilbtg_ALL"; 
             } else {
-              reviewers = "anilbtgorg/anilbtg_onlyone"; // Different reviewers for other branches
+              reviewers = "anilbtgorg/anilbtg_onlyone"; 
             }
 
             if (reviewers.length > 0) {
