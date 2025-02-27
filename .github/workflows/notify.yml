@@ -19,9 +19,9 @@ jobs:
 
             let reviewers = [];
             if (baseBranch === "master") {
-              reviewers = "anilbtgorg/anilbtg_all"; 
+              reviewers = "anilbtg_all"; 
             } else {
-              reviewers = "anilbtgorg/anilbtg_onlyone"; 
+              reviewers = "anilbtg_onlyone"; 
             }
 
             if (reviewers.length > 0) {
