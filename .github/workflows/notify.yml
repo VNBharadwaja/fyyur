@@ -23,7 +23,7 @@ jobs:
               let reviewers = [];
               if (baseBranch === "master") {
               
-                let members = await github.rest.teams.listMembersInOrg({org: 'anilbtgorg', team_slug: "anilbtg_onlyone"}); 
+                let members = await github.rest.teams.listMembersInOrg({org: 'anilbtgorg', team_slug: "anilbtg_ALL"}); 
                 console.log(members);
                  reviewers = members.data.map(member => member.login);
               } else {
