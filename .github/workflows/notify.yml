@@ -37,8 +37,7 @@ jobs:
                   pull_number: context.payload.pull_request.number,
                   reviewers: [reviewers]
                 });
-                console.log(reviewers);
-                console.log(response)
+           
               }} catch(error) {
               console.log('Error '+error.message);
               console.log(error);
