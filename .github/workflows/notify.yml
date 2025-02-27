@@ -30,7 +30,7 @@ jobs:
                 reviewers = "anilbtgorg/anilbtg_onlyone"; 
               }
   
-              if (reviewers.length > 0) {
+             
                const response = github.rest.pulls.requestReviewers({
                   owner: context.repo.owner,
                   repo: context.repo.repo,
@@ -38,7 +38,7 @@ jobs:
                   reviewers: [reviewers]
                 });
            
-              }} catch(error) {
+              } catch(error) {
               console.log('Error '+error.message);
               console.log(error);
               }
