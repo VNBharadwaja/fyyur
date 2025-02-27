@@ -8,7 +8,9 @@ jobs:
   assign-reviewers:
     runs-on: ubuntu-latest
     permissions:
-      pull-requests: read
+      pull-requests: write
+      contents: read
+  
     steps:
       - name: Check base branch and assign reviewers
         uses: actions/github-script@v6
