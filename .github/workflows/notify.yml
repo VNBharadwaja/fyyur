@@ -15,20 +15,25 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            const baseBranch = context.payload.pull_request.base.ref;
-
-            let reviewers = [];
-            if (baseBranch === "master") {
-              reviewers = "anilbtgorg/anilbtg_all"; 
-            } else {
-              reviewers = "anilbtgorg/anilbtg_onlyone"; 
-            }
-
-            if (reviewers.length > 0) {
-              github.rest.pulls.requestReviewers({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                pull_number: context.payload.pull_request.number,
-                team_reviewers: [reviewers]
-              });
-            }
+            try {
+              const baseBranch = context.payload.pull_request.base.ref;
+  
+              let reviewers = [];
+              if (baseBranch === "master") {
+                reviewers = "anilbtgorg/anilbtg_all"; 
+              } else {
+                reviewers = "anilbtgorg/anilbtg_onlyone"; 
+              }
+  
+              if (reviewers.length > 0) {
+               const response = github.rest.pulls.requestReviewers({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  pull_number: context.payload.pull_request.number,
+                  team_reviewers: [reviewers]
+                });
+                console.log(response)
+              }} catch(error) {
+              console.log('Error '+error.message);
+              console.log(error);
+              }
