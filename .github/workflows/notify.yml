@@ -22,7 +22,7 @@ jobs:
   
               let reviewers = [];
               if (baseBranch === "master") {
-                reviewers = github.rest.teams.listMembersInOrg({repo: 'anilbtgorg', team_slug: "anilbtg_onlyone"}); 
+                reviewers = github.rest.teams.listMembersInOrg({org: 'anilbtgorg', team_slug: "anilbtg_onlyone"}); 
               } else {
                 reviewers = "anilbtgorg/anilbtg_onlyone"; 
               }
