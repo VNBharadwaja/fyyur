@@ -22,7 +22,7 @@ jobs:
   
               let reviewers = [];
               if (baseBranch === "master") {
-                reviewers = "anilbtgorg/anilbtg_onlyone"; 
+                reviewers = github.rest.teams.listMembersInOrg({repo: context.org, team_slug: "anilbtgorg/anilbtg_onlyone"}); 
               } else {
                 reviewers = "anilbtgorg/anilbtg_onlyone"; 
               }
@@ -32,7 +32,7 @@ jobs:
                   owner: context.repo.owner,
                   repo: context.repo.repo,
                   pull_number: context.payload.pull_request.number,
-                  team_reviewers: [reviewers]
+                  reviewers: [reviewers]
                 });
                 console.log(reviewers);
                 console.log(response)
