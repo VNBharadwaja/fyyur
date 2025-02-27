@@ -24,6 +24,7 @@ jobs:
               if (baseBranch === "master") {
               
                 let members = github.rest.teams.listMembersInOrg({org: 'anilbtgorg', team_slug: "anilbtg_onlyone"}); 
+                console.log(members);
                  reviewers = members.data.map(member => member.login);
               } else {
                 reviewers = "anilbtgorg/anilbtg_onlyone"; 
