@@ -1,7 +1,7 @@
 name: Auto Assign Reviewers
 
 on:
-  pull_request_target:
+  pull_request:
     types: [opened, synchronize,reopened]
 
 jobs:
@@ -15,7 +15,7 @@ jobs:
       - name: Check base branch and assign reviewers
         uses: actions/github-script@v6
         with:
-          github-token: ${{ secrets.MY_GITHUB_PAT }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             try {
               const baseBranch = context.payload.pull_request.base.ref;
