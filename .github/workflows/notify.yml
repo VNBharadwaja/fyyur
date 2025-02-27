@@ -19,7 +19,7 @@ jobs:
 
             let reviewers = [];
             if (baseBranch === "master") {
-              reviewers = "anilbtgorg/anilbtg_ALL"; 
+              reviewers = "anilbtgorg/anilbtg_all"; 
             } else {
               reviewers = "anilbtgorg/anilbtg_onlyone"; 
             }
