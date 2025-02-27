@@ -15,7 +15,7 @@ jobs:
       - name: Check base branch and assign reviewers
         uses: actions/github-script@v6
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          github-token: ${{ secrets.MY_GITHUB_PAT }}
           script: |
             try {
               const baseBranch = context.payload.pull_request.base.ref;
