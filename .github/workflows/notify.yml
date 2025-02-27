@@ -18,17 +18,17 @@ jobs:
             const baseBranch = context.payload.pull_request.base.ref;
 
             let reviewers = [];
-            if (baseBranch === "master") {
-              reviewers = ["anilbtg_all"]; // Replace with actual GitHub usernames
-            } else {
-              reviewers = ["anilbtg_onlyone"]; // Different reviewers for other branches
-            }
+            # if (baseBranch === "master") {
+            #   reviewers = ["anilbtg_all"]; // Replace with actual GitHub usernames
+            # } else {
+            #   reviewers = ["anilbtg_onlyone"]; // Different reviewers for other branches
+            # }
 
             if (reviewers.length > 0) {
               github.rest.pulls.requestReviewers({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
                 pull_number: context.payload.pull_request.number,
-                team_reviewers: [reviewers]
+                team_reviewers: ["anilbtg_all"]
               });
             }
