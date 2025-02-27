@@ -18,7 +18,7 @@ from flask_migrate import Migrate
 #----------------------------------------------------------------------------#
 # App Config.
 #----------------------------------------------------------------------------#
-
+#comment added
 app = Flask(__name__)
 moment = Moment(app)
 app.config.from_object('config')
